@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>绿荫作业</title>
+
+        <style>
+            .img 
+                {width: 100%;
+                height: auto;
+                transition: all 0.4s ease-in-out;}
+
+            .style 
+                {filter: blur(5px);
+                transform: scale(1);}
+        </style>
+    </head>
+
+
+<body>
+<h1>绿荫作业 高斯懒加载图片</h1>
+
+<p>经 典 复 刻</p>
+
+<img class="img style" data-src="https://p0.ssl.qhmsg.com/dr/750__100/t013f8f4e577163a645.jpg"
+        src="https://p0.ssl.qhmsg.com/dr/750__70/t010d044cbe099f7bbc.jpg" alt="">
+
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+        <script>
+            let containers = $('.img')
+            for (let elem of containers) 
+            {   let qualitySrc = elem.getAttribute('data-src')
+                let qualityImg = new Image();
+
+                qualityImg.src = qualitySrc;
+                qualityImg.onload = () => 
+                {   $(elem).removeClass('style')
+                    elem.src = qualitySrc};
+            }
+        </script>
+
+</body>
+
+<!--照着学长的代码 复刻了一遍-->
+
+</html>
+

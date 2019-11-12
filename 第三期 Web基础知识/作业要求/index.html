@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .gauss-img {
+            width: 100%;
+            height: auto;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .gauss-style {
+            filter: blur(10px);
+            transform: scale(1);
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni at explicabo fugiat modi maiores blanditiis rerum
+        incidunt ipsum nisi totam consequatur ipsam quisquam animi distinctio a quam optio, inventore ratione?</h1>
+    <img class="gauss-img gauss-style" data-src="http://assets.trumangu.fun/background.jpg"
+        src="http://assets.trumangu.fun/_background.jpg" alt="">
+
+    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut iure placeat, velit recusandae adipisci eveniet,
+        nam necessitatibus impedit qui facilis ea dolorem animi? Eum modi delectus at quaerat non animi.</h1>
+
+    <img class="gauss-img gauss-style" data-src="http://assets.trumangu.fun/background.jpg"
+        src="http://assets.trumangu.fun/_background.jpg" alt="">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        let containers = $('.gauss-img')
+        for (let elem of containers) {
+            let qualitySrc = elem.getAttribute('data-src')
+
+            let qualityImg = new Image();
+            qualityImg.src = qualitySrc;
+            qualityImg.onload = () => {
+                $(elem).removeClass('gauss-style')
+                elem.src = qualitySrc
+            };
+        }
+    </script>
+</body>
+
+</html>
